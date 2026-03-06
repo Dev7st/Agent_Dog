@@ -1,0 +1,81 @@
+# Python (AI 및 백엔드 관련)
+__pycache__/
+*.py[cod]
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.env
+.env.production
+backend/.env
+ai/.env
+frontend/.env
+*.env
+*.env.local
+*.env.development.local
+*.env.test.local
+*.env.production.local
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Node.js (프론트엔드 관련, 예: React, Vue 등)
+node_modules/
+dist/
+build/
+*.jar
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Docker 관련
+*.dockerignore
+docker-compose.override.yml
+
+# 데이터베이스 관련
+*.sql
+*.sqlite3
+*.db
+
+# IDE 및 편집기 관련
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+
+# 빌드 및 캐시 파일
+*.cache
+*.DS_Store
+Thumbs.db
+
+# 민감한 정보
+secrets/
+credentials/
+*.key
+*.pem
+
+# AI 모델 관련
+*.h5
+*.pth
+*.pickle
+*.pkl
+model_checkpoints/
+runs/
+logs/
+application.yml*.tar.gz
+application.yml
+CLAUDE.md
+GEMINI.md
+
+# 큰 파일들 (GitHub 100MB 제한)
+*.dmg
+*.tar.gz
+*.zip
+*.rar
+*.7z
+meongtory_backup_*.tar.gz
