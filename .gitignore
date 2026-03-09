@@ -79,3 +79,8 @@ GEMINI.md
 *.rar
 *.7z
 meongtory_backup_*.tar.gz
+
+# 개인 파일
+agent2.txt
+error.txt
+langchain.txt
