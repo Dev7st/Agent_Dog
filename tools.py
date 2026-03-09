@@ -213,6 +213,7 @@ def recommend_products(selected_pet: str) -> str:
 
     breed = pet.get("breed", "").lower()
     age = pet.get("age", 0)
+    pet_size = _get_breed_size(breed)
 
     scored = []
     for product in MOCK_PRODUCTS:
@@ -231,6 +232,13 @@ def recommend_products(selected_pet: str) -> str:
             if other_breed.lower() != breed and other_breed.lower() in full_text:
                 score -= 3.0
                 reasons.append(f"다른 품종 전용 상품 ({other_breed})")
+                break
+
+        # 크기 불일치 감점 (소형견용 상품 → 중/대형견에게 감점 등)
+        for size_kw in ["소형", "중형", "대형"]:
+            if size_kw != pet_size and f"{size_kw}견" in full_text:
+                score -= 2.5
+                reasons.append(f"크기 불일치 ({size_kw}견용 상품)")
                 break
 
         # 나이 적합성
@@ -273,6 +281,22 @@ def recommend_products(selected_pet: str) -> str:
 # ──────────────────────────────────────────────
 # 헬퍼 함수
 # ──────────────────────────────────────────────
+
+BREED_SIZE_MAP = {
+    "소형": ["말티즈", "포메라니안", "시츄", "푸들", "치와와", "요크셔테리어"],
+    "중형": ["비글", "코기"],
+    "대형": ["골든리트리버", "래브라도", "진돗개", "사모예드"],
+}
+
+
+def _get_breed_size(breed: str) -> str:
+    """품종으로 크기(소형/중형/대형) 반환"""
+    breed_lower = breed.lower()
+    for size, breeds in BREED_SIZE_MAP.items():
+        if any(b.lower() in breed_lower or breed_lower in b.lower() for b in breeds):
+            return size
+    return "중형"  # 알 수 없는 품종은 중형으로 기본값
+
 
 def _extract_region(preferences: str) -> list:
     """사용자 선호도에서 지역 키워드 추출"""

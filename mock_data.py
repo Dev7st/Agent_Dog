@@ -344,4 +344,18 @@ MOCK_PRODUCTS = [
         "price": 26000,
         "category": "건강관리",
     },
+    {
+        "productId": 17,
+        "name": "중형견 하네스 세트",
+        "description": "중형견 체형에 맞는 안전 하네스 + 리드줄 세트, 내구성 강화 소재",
+        "price": 28000,
+        "category": "용품",
+    },
+    {
+        "productId": 18,
+        "name": "대형견 하네스 세트",
+        "description": "대형견 체형에 맞는 튼튼한 하네스 + 리드줄 세트, 가슴·목 이중 고정",
+        "price": 35000,
+        "category": "용품",
+    },
 ]
